@@ -6,5 +6,4 @@ val dataset = arrayListOf(
         details = "",
         time = ""
     )
-
 )

@@ -22,6 +22,12 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
+//        val btnAdd = binding.btnAdd
+//        btnAdd.setOnClickListener {
+//            navController.navigate(R.id.to)
+//        }
+
+
 
 
     }

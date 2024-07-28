@@ -39,10 +39,10 @@ class TodoAdapter(
         holder: ViewHolder,
         position: Int
     ) {
-//        val todo = dataset[position]
-//        holder.todoName.text = todo.name
-//        holder.todoDescription.text = todo.details
-//        holder.todoTime.text = todo.time
+        val todo = dataset[position]
+        holder.todoName.text = todo.name
+        holder.todoDescription.text = todo.details
+        holder.todoTime.text = todo.time
 
     }
 

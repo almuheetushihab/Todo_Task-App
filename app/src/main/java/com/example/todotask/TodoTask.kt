@@ -10,12 +10,13 @@ import androidx.lifecycle.Observer
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todotask.databinding.FragmentTodoTaskBinding
+import viewModel.TodoViewModel
 
 
 class TodoTask : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
-//    private val viewModel: TodoViewModel by viewModels()
+    private val viewModel: TodoViewModel by viewModels()
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
@@ -32,6 +33,9 @@ class TodoTask : Fragment(), TodoAdapter.ItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        adapter = TodoAdapter(dataset, this)
+        recyclerView.adapter = adapter
+
 //        viewModel.getItems()
 //        viewModel.items.observe(viewLifecycleOwner, Observer {
 //            adapter = TodoAdapter(it, this)
@@ -63,10 +67,10 @@ class TodoTask : Fragment(), TodoAdapter.ItemClickListener {
 
 
 
-
-        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = TodoAdapter(dataset, this)
-        recyclerView.adapter = adapter
+//
+//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
+//        adapter = TodoAdapter(dataset, this)
+//        recyclerView.adapter = adapter
 
 
     }
