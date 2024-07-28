@@ -3,6 +3,7 @@ package com.example.todotask
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todotask.databinding.FragmentTodoTaskBinding
@@ -43,6 +44,11 @@ class TodoAdapter(
         holder.todoName.text = todo.name
         holder.todoDescription.text = todo.details
         holder.todoTime.text = todo.time
+        holder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
+            dataset.removeAt(position)
+            notifyItemRemoved(position)
+            notifyItemRangeChanged(position, dataset.size)
+        }
 
     }
 

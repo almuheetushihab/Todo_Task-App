@@ -5,5 +5,50 @@ val dataset = arrayListOf(
         name = "",
         details = "",
         time = ""
-    )
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
+    Todo(
+        name = "",
+        details = "",
+        time = ""
+    ),
 )

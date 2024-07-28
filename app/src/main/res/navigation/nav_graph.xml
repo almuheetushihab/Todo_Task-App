@@ -11,6 +11,14 @@
         android:label="fragment_todo_task"
         tools:layout="@layout/fragment_todo_task">
 
+        <action
+            android:id="@+id/action_todoTask_to_addTask2"
+            app:destination="@id/addTask2" />
     </fragment>
+    <fragment
+        android:id="@+id/addTask2"
+        android:name="com.example.todotask.AddTask"
+        android:label="fragment_add_task"
+        tools:layout="@layout/fragment_add_task" />
 
 </navigation>

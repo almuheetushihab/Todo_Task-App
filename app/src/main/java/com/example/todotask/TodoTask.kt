@@ -44,35 +44,6 @@ class TodoTask : Fragment(), TodoAdapter.ItemClickListener {
 
 
 
-
-
-
-
-
-
-//        val viewModel: TodoViewModel by viewModels()
-//        viewModel.getItems()
-//
-//        viewModel.items.observe(viewLifecycleOwner, Observer {
-//            recyclerView.adapter = adapter
-//        })
-
-//        val viewModel: TodoViewModel by viewModels()
-//        viewModel.items.observe(viewLifecycleOwner, Observer {
-//            recyclerView.adapter = adapter
-//
-//        })
-
-
-
-
-
-//
-//        recyclerView.layoutManager = LinearLayoutManager(requireContext())
-//        adapter = TodoAdapter(dataset, this)
-//        recyclerView.adapter = adapter
-
-
     }
 
     override fun onItemClick(todo: Todo) {
