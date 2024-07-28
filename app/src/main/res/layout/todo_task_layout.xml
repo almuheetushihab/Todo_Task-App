@@ -24,18 +24,61 @@
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/todoTask_cardview"
         android:layout_width="match_parent"
-        android:layout_height="match_parent"
-        android:background="@color/black">
+        android:layout_height="match_parent">
+
+
+        <LinearLayout
+            android:id="@+id/todoTask_cardview_linear_layout"
+            android:layout_width="match_parent"
+            android:layout_height="match_parent"
+            android:orientation="horizontal">
+
+            <TextView
+                android:id="@+id/tv_todoTask_name"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="1"
+                android:text="@string/todo_task"
+                android:textSize="16sp"
+                android:padding="8dp"
+                tools:text="Name"/>
+
+            <ImageView
+                android:id="@+id/cardView_delete_button"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:layout_weight="0"
+                android:contentDescription="@string/delete"
+                android:padding="8dp"
+                app:srcCompat="@drawable/baseline_delete_24"/>
+
+        </LinearLayout>
+
 
         <TextView
-            android:id="@+id/tv_todoTask_name"
+            android:id="@+id/tv_todoTask_details"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/todo_task"
-            android:textSize="24sp"
+            android:textSize="16sp"
+            android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent"
-            tools:text="Name"/>
+            app:layout_constraintTop_toBottomOf="@id/todoTask_cardview_linear_layout"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Details"/>
+        <TextView
+            android:id="@+id/tv_todoTask_time"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:text="@string/todo_task"
+            android:textSize="16sp"
+            android:padding="8dp"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@id/tv_todoTask_details"
+            app:layout_constraintEnd_toEndOf="parent"
+            tools:text="Time"/>
+
+
 
     </androidx.constraintlayout.widget.ConstraintLayout>
 
