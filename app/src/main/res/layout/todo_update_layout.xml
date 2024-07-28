@@ -6,59 +6,58 @@
     android:layout_height="match_parent"
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp">
-
-
-    <TextView
-        android:id="@+id/tv_addTask_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/add_task"
-        android:fontFamily="@font/bubble_gumsans_regular"
-        android:textSize="32sp"
-        android:textAlignment="center"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintTop_toTopOf="parent"/>
-
+    android:layout_marginEnd="16dp"
+    >
 
     <EditText
-        android:id="@+id/et_name"
+        android:id="@+id/et_update_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
+        android:layout_marginTop="200dp"
         android:autofillHints=""
+        android:fontFamily="@font/bubble_gumsans_regular"
         android:hint="@string/todo_task_name"
         android:inputType="text"
-        android:fontFamily="@font/bubble_gumsans_regular"
         android:textSize="24sp"
-        android:layout_marginTop="200dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name"/>
+        app:layout_constraintTop_toBottomOf="@+id/update_title"
+        tools:text="Task Name" />
 
     <EditText
-        android:id="@+id/et_Details"
+        android:id="@+id/et_update_Details"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
-        android:inputType="text"
         android:fontFamily="@font/bubble_gumsans_regular"
+        android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name"
-        tools:text="Details"/>
+        app:layout_constraintTop_toBottomOf="@+id/et_update_name"
+        tools:text="Task Details" />
 
     <Button
-        android:id="@+id/button"
+        android:id="@+id/update_button"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="@string/add"
-        android:fontFamily="@font/bubble_gumsans_regular"
-        android:textSize="28sp"
         android:layout_marginTop="50dp"
+        android:fontFamily="@font/bubble_gumsans_regular"
+        android:text="@string/update"
+        android:textSize="28sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Details" />
+        app:layout_constraintTop_toBottomOf="@+id/et_update_Details" />
+
+    <TextView
+        android:id="@+id/update_title"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="@string/update_task"
+        android:textSize="32sp"
+        android:fontFamily="@font/bubble_gumsans_regular"
+        android:textAlignment="center"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>
