@@ -38,18 +38,20 @@
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="1"
+                android:fontFamily="@font/bubble_gumsans_regular"
                 android:text="@string/todo_task"
                 android:textSize="16sp"
                 android:padding="8dp"
                 tools:text="Name"/>
 
-            <ImageView
-                android:id="@+id/cardView_delete_button"
+            <ImageButton
+                android:id="@+id/btn_delete"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:layout_weight="0"
                 android:contentDescription="@string/delete"
                 android:padding="8dp"
+                android:background="null"
                 app:srcCompat="@drawable/baseline_delete_24"/>
 
         </LinearLayout>
@@ -60,6 +62,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/todo_task"
+            android:fontFamily="@font/bubble_gumsans_regular"
             android:textSize="16sp"
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
@@ -71,6 +74,7 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
             android:text="@string/todo_task"
+            android:fontFamily="@font/bubble_gumsans_regular"
             android:textSize="16sp"
             android:padding="8dp"
             app:layout_constraintStart_toStartOf="parent"
