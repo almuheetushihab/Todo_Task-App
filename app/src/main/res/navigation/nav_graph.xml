@@ -17,9 +17,6 @@
         <action
             android:id="@+id/action_todoTask_to_updateTask"
             app:destination="@id/updateTask" />
-        <argument
-            android:name="data"
-            app:argType="com.example.todotask.Todo" />
     </fragment>
     <fragment
         android:id="@+id/addTask2"

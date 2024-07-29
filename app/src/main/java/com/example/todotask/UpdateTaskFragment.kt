@@ -19,6 +19,8 @@ class UpdateTaskFragment : Fragment() {
     private val viewModel: TodoViewModel by viewModels()
 
 
+
+
     override fun onCreate(
         savedInstanceState: Bundle?,
     ) {
@@ -54,8 +56,10 @@ class UpdateTaskFragment : Fragment() {
             val details = binding.etUpdateDetails.text.toString()
             val time = getCurrentTime()
             val todo = Todo(name, details, time)
-            dataset.add(todo)
             onBackPressed()
+
+
+
         }
 
 
