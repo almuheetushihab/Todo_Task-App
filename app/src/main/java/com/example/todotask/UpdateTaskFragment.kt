@@ -16,18 +16,20 @@ import java.util.Locale
 
 class UpdateTaskFragment : Fragment() {
     private lateinit var binding: FragmentUpdateTaskBinding
-    private lateinit var todo: Todo
+    private val viewModel: TodoViewModel by viewModels()
 
 
     override fun onCreate(
         savedInstanceState: Bundle?,
     ) {
         super.onCreate(savedInstanceState)
-//        arguments?.let {
-//            val todo = it.getSerializable("data")
-//            todo.
-//
-//        }
+        arguments?.let {
+            val todo = it.getSerializable("data") as Todo
+            todo.name
+            todo.details
+            todo.time
+
+        }
 
     }
 
@@ -51,7 +53,8 @@ class UpdateTaskFragment : Fragment() {
             val name = binding.etUpdateName.text.toString()
             val details = binding.etUpdateDetails.text.toString()
             val time = getCurrentTime()
-
+            val todo = Todo(name, details, time)
+            dataset.add(todo)
             onBackPressed()
         }
 

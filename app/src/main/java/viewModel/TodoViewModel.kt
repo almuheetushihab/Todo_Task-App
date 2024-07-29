@@ -23,4 +23,14 @@ class TodoViewModel : ViewModel() {
 
         }, 10)
     }
+
+    fun updateItem(todo: Todo) {
+        viewModelScope.launch {
+            val index = dataset.indexOfFirst { it.name == todo.name }
+            if (index != -1) {
+                dataset[index] = todo
+                _items.value = dataset
+            }
+        }
+    }
 }
