@@ -6,6 +6,7 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import androidx.fragment.app.viewModels
+import androidx.navigation.fragment.navArgs
 import com.example.todotask.databinding.FragmentUpdateTaskBinding
 import viewModel.TodoViewModel
 import java.text.SimpleDateFormat
@@ -16,16 +17,17 @@ import java.util.Locale
 class UpdateTaskFragment : Fragment() {
     private lateinit var binding: FragmentUpdateTaskBinding
     private lateinit var todo: Todo
-    private val viewModel: TodoViewModel by viewModels()
+
 
     override fun onCreate(
         savedInstanceState: Bundle?,
     ) {
         super.onCreate(savedInstanceState)
-        arguments?.let {
-            val todo = it.getSerializable("data")
-
-        }
+//        arguments?.let {
+//            val todo = it.getSerializable("data")
+//            todo.
+//
+//        }
 
     }
 
@@ -43,6 +45,7 @@ class UpdateTaskFragment : Fragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+
 
         binding.updateBtn.setOnClickListener {
             val name = binding.etUpdateName.text.toString()
