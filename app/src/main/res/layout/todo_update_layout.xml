@@ -13,15 +13,16 @@
         android:id="@+id/et_update_name"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_marginTop="200dp"
+        android:layout_marginTop="100dp"
         android:autofillHints=""
         android:fontFamily="@font/bubble_gumsans_regular"
         android:hint="@string/todo_task_name"
+        android:textColor="@color/gray"
         android:inputType="text"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/update_title"
+        app:layout_constraintTop_toTopOf="parent"
         tools:text="Task Name" />
 
     <EditText
@@ -29,8 +30,10 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:autofillHints=""
+        android:hint="@string/todo_task_detailsa"
         android:fontFamily="@font/bubble_gumsans_regular"
         android:inputType="text"
+        android:textColor="@color/gray"
         android:textSize="24sp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
@@ -49,15 +52,4 @@
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toBottomOf="@+id/et_update_Details" />
 
-    <TextView
-        android:id="@+id/update_title"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:text="@string/update_task"
-        android:textSize="32sp"
-        android:fontFamily="@font/bubble_gumsans_regular"
-        android:textAlignment="center"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
 </androidx.constraintlayout.widget.ConstraintLayout>

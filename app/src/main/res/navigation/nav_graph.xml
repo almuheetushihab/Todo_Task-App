@@ -7,18 +7,30 @@
 
     <fragment
         android:id="@+id/todoTask"
-        android:name="com.example.todotask.TodoTask"
+        android:name="com.example.todotask.TodoTaskFragment"
         android:label="fragment_todo_task"
         tools:layout="@layout/fragment_todo_task">
 
         <action
             android:id="@+id/action_todoTask_to_addTask2"
             app:destination="@id/addTask2" />
+        <action
+            android:id="@+id/action_todoTask_to_updateTask"
+            app:destination="@id/updateTask" />
     </fragment>
     <fragment
         android:id="@+id/addTask2"
-        android:name="com.example.todotask.AddTask"
+        android:name="com.example.todotask.AddTaskFragment"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" />
+    <fragment
+        android:id="@+id/updateTask"
+        android:name="com.example.todotask.UpdateTaskFragment"
+        android:label="fragment_update_task"
+        tools:layout="@layout/fragment_update_task" >
+        <argument
+            android:name="data"
+            app:argType="com.example.todotask.Todo" />
+    </fragment>
 
 </navigation>

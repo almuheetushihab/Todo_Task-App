@@ -6,7 +6,6 @@ import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
-import com.example.todotask.databinding.FragmentTodoTaskBinding
 
 class TodoAdapter(
     private val dataset: ArrayList<Todo>,
@@ -37,19 +36,21 @@ class TodoAdapter(
 
 
     override fun onBindViewHolder(
-        holder: ViewHolder,
+        viewHolder: ViewHolder,
         position: Int
     ) {
         val todo = dataset[position]
-        holder.todoName.text = todo.name
-        holder.todoDescription.text = todo.details
-        holder.todoTime.text = todo.time
-        holder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
+        viewHolder.todoName.text = todo.name
+        viewHolder.todoDescription.text = todo.details
+        viewHolder.todoTime.text = todo.time
+        viewHolder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
             dataset.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.size)
         }
-
+        viewHolder.itemView.setOnClickListener {
+            listener.onItemClick(todo)
+        }
     }
 
 
@@ -59,7 +60,8 @@ class TodoAdapter(
 
 
     interface ItemClickListener {
-        fun onItemClick(todo: Todo)
+        fun onItemClick(todo: Todo){
+        }
 
     }
 }
