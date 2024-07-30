@@ -3,34 +3,36 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:id="@+id/nav_graph.xml"
-    app:startDestination="@id/todoTask">
+    app:startDestination="@id/todoTask_Fragment_nav_id">
 
     <fragment
-        android:id="@+id/todoTask"
+        android:id="@+id/todoTask_Fragment_nav_id"
         android:name="com.example.todotask.TodoTaskFragment"
         android:label="fragment_todo_task"
         tools:layout="@layout/fragment_todo_task">
 
         <action
-            android:id="@+id/action_todoTask_to_addTask2"
-            app:destination="@id/addTask2" />
+            android:id="@+id/action_todoTask_Fragment_nav_id_to_addTask_Fragment_nav_id"
+            app:destination="@id/addTask_Fragment_nav_id" />
         <action
-            android:id="@+id/action_todoTask_to_updateTask"
-            app:destination="@id/updateTask" />
+            android:id="@+id/action_todoTask_Fragment_nav_id_to_updateTask_Fragment_nav_id"
+            app:destination="@id/updateTask_Fragment_nav_id" />
     </fragment>
     <fragment
-        android:id="@+id/addTask2"
+        android:id="@+id/addTask_Fragment_nav_id"
         android:name="com.example.todotask.AddTaskFragment"
         android:label="fragment_add_task"
         tools:layout="@layout/fragment_add_task" />
     <fragment
-        android:id="@+id/updateTask"
+        android:id="@+id/updateTask_Fragment_nav_id"
         android:name="com.example.todotask.UpdateTaskFragment"
         android:label="fragment_update_task"
         tools:layout="@layout/fragment_update_task" >
         <argument
             android:name="data"
-            app:argType="com.example.todotask.Todo" />
+            app:argType="com.example.todotask.Todo"
+            app:nullable="true"
+            android:defaultValue="@null" />
     </fragment>
 
 </navigation>

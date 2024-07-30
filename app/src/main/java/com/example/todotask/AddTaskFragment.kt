@@ -22,6 +22,7 @@ class AddTaskFragment : Fragment() {
     ) {
         super.onCreate(savedInstanceState)
 
+
     }
 
     override fun onCreateView(
@@ -47,7 +48,8 @@ class AddTaskFragment : Fragment() {
             val name = binding.etName.text.toString()
             val details = binding.etDetails.text.toString()
             val time = getCurrentTime()
-            val todo = Todo(name, details, time)
+            val id = (0..100).random()
+            val todo = Todo(id = id.toString(), name = name, details = details, time = time)
             dataset.add(todo)
             onBackPressed()
         }

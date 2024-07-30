@@ -43,6 +43,7 @@ class TodoAdapter(
         viewHolder.todoName.text = todo.name
         viewHolder.todoDescription.text = todo.details
         viewHolder.todoTime.text = todo.time
+
         viewHolder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
             dataset.removeAt(position)
             notifyItemRemoved(position)

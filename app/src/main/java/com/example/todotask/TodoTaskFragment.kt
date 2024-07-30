@@ -35,7 +35,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.getItems()
         viewModel.items.observe(viewLifecycleOwner, Observer {
             adapter = TodoAdapter(it, this)
             recyclerView.adapter = adapter
@@ -45,7 +44,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onItemClick(todo: Todo) {
         val action = binding.todoTaskRecyclerView.findNavController()
-            .navigate(R.id.action_todoTask_to_updateTask)
+            .navigate(R.id.action_todoTask_Fragment_nav_id_to_updateTask_Fragment_nav_id)
         return action
     }
 

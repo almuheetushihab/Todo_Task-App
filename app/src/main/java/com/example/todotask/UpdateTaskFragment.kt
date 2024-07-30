@@ -5,6 +5,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.Button
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.todotask.databinding.FragmentUpdateTaskBinding
@@ -17,30 +18,16 @@ import java.util.Locale
 class UpdateTaskFragment : Fragment() {
     private lateinit var binding: FragmentUpdateTaskBinding
     private val viewModel: TodoViewModel by viewModels()
+    private val args: UpdateTaskFragmentArgs by navArgs()
 
-
-
-
-    override fun onCreate(
-        savedInstanceState: Bundle?,
-    ) {
-        super.onCreate(savedInstanceState)
-        arguments?.let {
-            val todo = it.getSerializable("data") as Todo
-            todo.name
-            todo.details
-            todo.time
-        }
-
-    }
 
     override fun onCreateView(
-        inflater: LayoutInflater,
-        container: ViewGroup?,
-        savedInstanceState: Bundle?
+        inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentUpdateTaskBinding.inflate(inflater, container, false)
         return binding.root
+
+
     }
 
     override fun onViewCreated(
@@ -49,20 +36,21 @@ class UpdateTaskFragment : Fragment() {
     ) {
         super.onViewCreated(view, savedInstanceState)
 
-
-        binding.updateBtn.setOnClickListener {
-            val name = binding.etUpdateName.text.toString()
-            val details = binding.etUpdateDetails.text.toString()
-            val time = getCurrentTime()
-
-            val todo = Todo(name, details, time)
-            dataset.add(todo)
-            onBackPressed()
-
+        val todo = args.data
+        dataset.find {
+            it.id == todo?.id
         }
 
+//        todo = dataset.find { it.id == todo?.id }
 
+        binding.etUpdateName.setText(todo?.name)
+        binding.etUpdateDetails.setText(todo?.details)
+        binding.updateBtn.setOnClickListener {
+
+            onBackPressed()
+        }
     }
+
 
     private fun onBackPressed() {
         requireActivity().onBackPressed()
@@ -74,5 +62,4 @@ class UpdateTaskFragment : Fragment() {
         val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         return dateFormat.format(currentTime)
     }
-
 }
