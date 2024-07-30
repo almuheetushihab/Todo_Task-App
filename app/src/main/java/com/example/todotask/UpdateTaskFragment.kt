@@ -30,7 +30,6 @@ class UpdateTaskFragment : Fragment() {
             todo.name
             todo.details
             todo.time
-
         }
 
     }
@@ -55,10 +54,10 @@ class UpdateTaskFragment : Fragment() {
             val name = binding.etUpdateName.text.toString()
             val details = binding.etUpdateDetails.text.toString()
             val time = getCurrentTime()
+
             val todo = Todo(name, details, time)
+            dataset.add(todo)
             onBackPressed()
-
-
 
         }
 
