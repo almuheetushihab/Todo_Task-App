@@ -21,7 +21,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
-    private lateinit var btnAdd: ImageButton
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,

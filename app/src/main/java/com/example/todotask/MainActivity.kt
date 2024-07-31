@@ -20,8 +20,8 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val navController = findNavController(R.id.nav_host_fragment_content_main)
-
+//        val navController = findNavController(R.id.nav_host_fragment_content_main)
+//
 //        navController.addOnDestinationChangedListener { _, destination, _ ->
 //            if (destination.id == R.id.todoTask_Fragment_nav_id) {
 //                binding.btnAdd.visibility = View.VISIBLE
@@ -29,7 +29,6 @@ class MainActivity : AppCompatActivity() {
 //                binding.btnAdd.visibility = View.GONE
 //            }
 //        }
-
 
 
     }
