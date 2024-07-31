@@ -9,7 +9,7 @@ import com.example.todotask.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-    private lateinit var btnAdd: ImageButton
+
 
 
     override fun onCreate(
@@ -22,19 +22,16 @@ class MainActivity : AppCompatActivity() {
 
         val navController = findNavController(R.id.nav_host_fragment_content_main)
 
-        navController.addOnDestinationChangedListener { _, destination, _ ->
-            if (destination.id == R.id.todoTask_Fragment_nav_id) {
-                binding.btnAdd.visibility = View.VISIBLE
-            } else {
-                binding.btnAdd.visibility = View.GONE
-            }
-        }
+//        navController.addOnDestinationChangedListener { _, destination, _ ->
+//            if (destination.id == R.id.todoTask_Fragment_nav_id) {
+//                binding.btnAdd.visibility = View.VISIBLE
+//            } else {
+//                binding.btnAdd.visibility = View.GONE
+//            }
+//        }
 
 
-        btnAdd = binding.btnAdd
-        btnAdd.setOnClickListener {
-            navController.navigate(R.id.action_todoTask_Fragment_nav_id_to_addTask_Fragment_nav_id)
-        }
+
     }
 
 }

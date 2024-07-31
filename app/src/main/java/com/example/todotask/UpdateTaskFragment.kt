@@ -58,7 +58,6 @@ class UpdateTaskFragment : Fragment() {
     private fun updateTask(updatedTodo: Todo) {
         for (index in dataset.indices) {
             if (dataset[index].id == updatedTodo.id) {
-                Log.d("Log404", "Got it : $dataset")
                 dataset[index] = updatedTodo
             }
         }
