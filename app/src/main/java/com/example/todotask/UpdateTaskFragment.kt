@@ -39,7 +39,7 @@ class UpdateTaskFragment : Fragment() {
 
         val todo = args.data
 
-        Log.d("Log404", "Got the todo$todo")
+        Log.d("Log404", "Got the todo : $todo")
 
 
         binding.etUpdateName.setText(todo.name)
@@ -56,18 +56,16 @@ class UpdateTaskFragment : Fragment() {
     }
 
     private fun updateTask(updatedTodo: Todo) {
-        for (i in dataset.indices) {
-            if (dataset[i].id == updatedTodo.id) {
-                Log.d("Log404", "Got it$dataset")
-                dataset[i] = updatedTodo
-
+        for (index in dataset.indices) {
+            if (dataset[index].id == updatedTodo.id) {
+                Log.d("Log404", "Got it : $dataset")
+                dataset[index] = updatedTodo
             }
         }
     }
 
     private fun onBackPressed() {
         requireActivity().onBackPressed()
-
     }
 
     private fun getCurrentTime(): String {

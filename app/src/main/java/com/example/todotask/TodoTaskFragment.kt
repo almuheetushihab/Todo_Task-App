@@ -45,11 +45,9 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     }
 
     override fun onItemClick(todo: Todo) {
-        Log.d("Log404", "onItemClick: ${todo.name}")
-        Log.d("Log404", "onItemClick: ${todo.details}")
-        Log.d("Log404", "onItemClick: ${todo.time}")
-
-       val action = TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToUpdateTaskFragmentNavId(todo)
+        Log.d("Log404", "onItemClick: $todo")
+        val action =
+            TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToUpdateTaskFragmentNavId(todo)
         findNavController().navigate(action)
     }
 
