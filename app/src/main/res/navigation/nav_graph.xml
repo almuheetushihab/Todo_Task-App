@@ -28,11 +28,10 @@
         android:name="com.example.todotask.UpdateTaskFragment"
         android:label="fragment_update_task"
         tools:layout="@layout/fragment_update_task" >
+
         <argument
             android:name="data"
-            app:argType="com.example.todotask.Todo"
-            app:nullable="true"
-            android:defaultValue="@null" />
+            app:argType="com.example.todotask.Todo" />
     </fragment>
 
 </navigation>

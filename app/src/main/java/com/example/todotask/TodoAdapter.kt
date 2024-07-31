@@ -63,7 +63,6 @@ class TodoAdapter(
     interface ItemClickListener {
         fun onItemClick(todo: Todo){
         }
-
     }
 }
 
