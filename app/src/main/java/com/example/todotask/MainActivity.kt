@@ -9,7 +9,7 @@ import com.example.todotask.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
     private lateinit var binding: ActivityMainBinding
-
+//    private lateinit var name:
 
 
     override fun onCreate(
