@@ -1,5 +1,6 @@
 package com.example.todotask
 
+import SharedPrefHelper
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.util.Log
@@ -21,12 +22,14 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
+//    private lateinit var sharedPrefHelper: SharedPrefHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTodoTaskBinding.inflate(inflater, container, false)
+//        sharedPrefHelper = SharedPrefHelper(requireContext())
         return binding.root
     }
 
@@ -37,6 +40,9 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+//        val savedTasks = sharedPrefHelper.getTasks()
+//        viewModel.saveTasks(savedTasks)
 
         viewModel.items.observe(viewLifecycleOwner, Observer {
             adapter = TodoAdapter(it, this)

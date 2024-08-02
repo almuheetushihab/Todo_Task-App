@@ -7,12 +7,17 @@ import com.example.todotask.Todo
 import com.example.todotask.dataset
 
 class TodoViewModel : ViewModel() {
+
+
     private val _items = MutableLiveData<ArrayList<Todo>>()
     val items: LiveData<ArrayList<Todo>> get() = _items
 
     init {
         _items.value = dataset
     }
-
+//    fun setItems(newItems: List<Todo>) {
+//        _items.value = ArrayList(newItems)
+//
+//    }
 
 }
