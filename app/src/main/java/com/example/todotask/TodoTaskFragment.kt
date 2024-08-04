@@ -1,6 +1,7 @@
 package com.example.todotask
 
 import TodoViewModel
+import android.content.Context
 import androidx.fragment.app.viewModels
 import android.os.Bundle
 import android.util.Log
@@ -8,6 +9,7 @@ import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.EditText
 import android.widget.ImageButton
 import androidx.lifecycle.Observer
 import androidx.navigation.findNavController
@@ -22,11 +24,24 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
 
+
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?,
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTodoTaskBinding.inflate(inflater, container, false)
+
+        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
+        val name = sharedPreferences.getString("name", "")
+        val details = sharedPreferences.getString("details", "")
+
+        val nameEditText = binding.root.findViewById<EditText>(R.id.tv_todoTask_name)
+        val detailsEditText = binding.root.findViewById<EditText>(R.id.tv_todoTask_details)
+
+        nameEditText.setText(name)
+        detailsEditText.setText(details)
+
+
         return binding.root
     }
 
