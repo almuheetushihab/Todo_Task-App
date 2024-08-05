@@ -1,5 +1,6 @@
 package com.example.todotask
 
+import SharedPrefHelper
 import TodoViewModel
 import android.content.Context
 import androidx.fragment.app.viewModels
@@ -23,6 +24,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
+//    private lateinit var sharedPrefHelper: SharedPrefHelper
 
 
     override fun onCreateView(
@@ -30,18 +32,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTodoTaskBinding.inflate(inflater, container, false)
-
-        val sharedPreferences = requireContext().getSharedPreferences("MyPrefs", Context.MODE_PRIVATE)
-        val name = sharedPreferences.getString("name", "")
-        val details = sharedPreferences.getString("details", "")
-
-        val nameEditText = binding.root.findViewById<EditText>(R.id.tv_todoTask_name)
-        val detailsEditText = binding.root.findViewById<EditText>(R.id.tv_todoTask_details)
-
-        nameEditText.setText(name)
-        detailsEditText.setText(details)
-
-
+//        sharedPrefHelper = SharedPrefHelper(requireContext())
         return binding.root
     }
 
@@ -52,6 +43,12 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         super.onViewCreated(view, savedInstanceState)
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
+//        val tasks = sharedPrefHelper.getTasks()
+//        viewModel.items.observe(viewLifecycleOwner, Observer {
+//            adapter = TodoAdapter(tasks as ArrayList<Todo>, this)
+//            recyclerView.adapter = adapter
+//        })
 
         viewModel.items.observe(viewLifecycleOwner, Observer {
             adapter = TodoAdapter(it, this)

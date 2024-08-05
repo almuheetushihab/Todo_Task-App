@@ -21,10 +21,7 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val sharedPreferences = getSharedPreferences("MyPrefs", MODE_PRIVATE)
-        val editor = sharedPreferences.edit()
-        editor.putString("name", "details")
-        editor.apply()
+
 
     }
 }

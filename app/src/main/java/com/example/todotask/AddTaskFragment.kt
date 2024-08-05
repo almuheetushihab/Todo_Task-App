@@ -15,11 +15,13 @@ import java.util.Locale
 
 class AddTaskFragment : Fragment() {
     private lateinit var binding: FragmentAddTaskBinding
+//    private lateinit var sharedPrefHelper: SharedPrefHelper
 
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
         binding = FragmentAddTaskBinding.inflate(inflater, container, false)
+//        sharedPrefHelper = SharedPrefHelper(requireContext())
         return binding.root
 
     }
@@ -43,6 +45,8 @@ class AddTaskFragment : Fragment() {
             val todo = Todo(id = id.toString(), name = name, details = details, time = time)
             dataset.add(todo)
             onBackPressed()
+//            sharedPrefHelper.saveTask(todo)
+//            onBackPressed()
         }
 
     }

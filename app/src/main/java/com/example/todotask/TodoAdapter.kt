@@ -1,5 +1,7 @@
 package com.example.todotask
 
+import SharedPrefHelper
+import android.content.Context
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
@@ -10,8 +12,10 @@ import androidx.recyclerview.widget.RecyclerView
 class TodoAdapter(
     private val dataset: ArrayList<Todo>,
     private val listener: ItemClickListener,
+
 ) :
     RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
+
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
         val todoName: TextView
         val todoDescription: TextView
@@ -31,6 +35,7 @@ class TodoAdapter(
     ): ViewHolder {
         val view = LayoutInflater.from(viewGroup.context)
             .inflate(R.layout.todo_task_layout, viewGroup, false)
+
         return ViewHolder(view)
     }
 
