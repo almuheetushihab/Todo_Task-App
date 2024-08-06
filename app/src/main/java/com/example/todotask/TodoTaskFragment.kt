@@ -24,7 +24,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
-//    private lateinit var sharedPrefHelper: SharedPrefHelper
+    private lateinit var sharedPrefHelper: SharedPrefHelper
 
 
     override fun onCreateView(
@@ -32,7 +32,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         savedInstanceState: Bundle?
     ): View {
         binding = FragmentTodoTaskBinding.inflate(inflater, container, false)
-//        sharedPrefHelper = SharedPrefHelper(requireContext())
+        sharedPrefHelper = SharedPrefHelper(requireContext())
         return binding.root
     }
 
@@ -44,16 +44,12 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-//        val tasks = sharedPrefHelper.getTasks()
-//        viewModel.items.observe(viewLifecycleOwner, Observer {
-//            adapter = TodoAdapter(tasks as ArrayList<Todo>, this)
-//            recyclerView.adapter = adapter
-//        })
 
         viewModel.items.observe(viewLifecycleOwner, Observer {
             adapter = TodoAdapter(it, this)
             recyclerView.adapter = adapter
         })
+
 
         binding.btnAdd.setOnClickListener {
             val action =
