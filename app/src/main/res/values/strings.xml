@@ -12,4 +12,6 @@
     <string name="adds">add</string>
     <string name="todo_task_details">Todo task details</string>
     <string name="todo_task_detailsa">Todo task details...</string>
+    <string name="load">Load</string>
+    <string name="save">Save</string>
 </resources>
