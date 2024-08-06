@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoAdapter(
-    private val dataset: ArrayList<Todo>,
+    val dataset: ArrayList<Todo>,
     private val listener: ItemClickListener,
 
 ) :

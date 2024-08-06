@@ -27,27 +27,7 @@
       app:layout_constraintBottom_toBottomOf="parent"
       app:layout_constraintEnd_toEndOf="parent"/>
 
-  <Button
-      android:id="@+id/btn_add_load"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/load"
-      android:layout_marginTop="50dp"
-      android:fontFamily="@font/bubble_gumsans_regular"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/todoTask_recyclerView"/>
 
-  <Button
-      android:id="@+id/btn_add_save"
-      android:layout_width="wrap_content"
-      android:layout_height="wrap_content"
-      android:text="@string/save"
-      android:layout_marginTop="16dp"
-      android:fontFamily="@font/bubble_gumsans_regular"
-      app:layout_constraintStart_toStartOf="parent"
-      app:layout_constraintEnd_toEndOf="parent"
-      app:layout_constraintTop_toBottomOf="@+id/btn_add_load"/>
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>

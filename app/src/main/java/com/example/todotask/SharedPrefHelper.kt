@@ -10,17 +10,21 @@ class SharedPrefHelper(context: Context) {
     private val editor: SharedPreferences.Editor = sharedPref.edit()
     private val key = "tasks"
 
-    fun saveTask(task: Todo) {
-        val tasks = getTasks().toMutableList()
-        tasks.add(task)
-        editor.putString(key, Gson().toJson(tasks))
+    fun saveTask(tasks: ArrayList<Todo>) {
+        val gson = Gson()
+        val tasksJson = gson.toJson(tasks)
+        editor.putString(key, tasksJson)
         editor.apply()
     }
 
 
-    private fun getTasks(): List<Todo> {
+
+    fun getTasks(): List<Todo> {
         val tasksJson = sharedPref.getString(key, null)
         val type = object : TypeToken<List<Todo>>() {}.type
         return Gson().fromJson(tasksJson, type) ?: emptyList()
     }
 }
+
+
+
