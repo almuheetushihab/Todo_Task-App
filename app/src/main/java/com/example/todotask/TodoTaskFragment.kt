@@ -47,10 +47,10 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.items.observe(viewLifecycleOwner, Observer {
-            adapter = TodoAdapter(it, this)
-            recyclerView.adapter = adapter
-        })
+//        viewModel.items.observe(viewLifecycleOwner, Observer {
+//            adapter = TodoAdapter(it, this)
+//            recyclerView.adapter = adapter
+//        })
 
 
         binding.btnAdd.setOnClickListener {
@@ -60,8 +60,8 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         }
         binding.btnClearAll.setOnClickListener {
             sharedPrefHelper.clearAllData()
-            adapter.dataset.clear()
-            adapter.notifyDataSetChanged()
+            adapter.dataset.clear()  // task
+            adapter.notifyDataSetChanged() // Task
         }
 
     }
@@ -75,12 +75,16 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onResume() {
         super.onResume()
+
+        if (!dataset.isEmpty()) {
+            sharedPrefHelper.saveTask(dataset)
+        }
+
         val tasks = sharedPrefHelper.getTasks()
-        Toast.makeText(this.context, "getTasks: $tasks", Toast.LENGTH_LONG).show()
+        dataset.clear()
         dataset.addAll(tasks)
+        Toast.makeText(this.context, "getTasks: ${tasks.size}", Toast.LENGTH_LONG).show()
         adapter = TodoAdapter(dataset, this)
-       // binding.todoTaskRecyclerView.setHasFixedSize(true)
-        //binding.todoTaskRecyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.todoTaskRecyclerView.adapter = adapter
 
     }
@@ -88,9 +92,8 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onPause() {
         super.onPause()
-        val tasks = adapter.dataset
-        Toast.makeText(this.context, "onPause: $tasks", Toast.LENGTH_LONG).show()
-        sharedPrefHelper.saveTask(tasks)
-
+        sharedPrefHelper.clearAllData()
+        Toast.makeText(this.context, "onPause: ${dataset.size}", Toast.LENGTH_LONG).show()
+        sharedPrefHelper.saveTask(dataset)
     }
 }
