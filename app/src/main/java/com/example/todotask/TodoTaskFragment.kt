@@ -21,13 +21,13 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
-    private var todoList: ArrayList<Todo> = arrayListOf()
     private lateinit var sharedPrefHelper: SharedPrefHelper
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
 
+//        sharedPrefHelper.getTasks()
     }
 
     override fun onCreateView(
@@ -47,7 +47,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
         viewModel.items.observe(viewLifecycleOwner, Observer {
             adapter = TodoAdapter(it, this)
             recyclerView.adapter = adapter
@@ -61,7 +60,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         }
         binding.btnClearAll.setOnClickListener {
             sharedPrefHelper.clearAllData()
-            dataset.clear()
+            adapter.dataset.clear()
             adapter.notifyDataSetChanged()
         }
 
@@ -80,16 +79,18 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         Toast.makeText(this.context, "getTasks: $tasks", Toast.LENGTH_LONG).show()
         dataset.addAll(tasks)
         adapter = TodoAdapter(dataset, this)
+       // binding.todoTaskRecyclerView.setHasFixedSize(true)
+        //binding.todoTaskRecyclerView.layoutManager = LinearLayoutManager(this.context)
         binding.todoTaskRecyclerView.adapter = adapter
+
     }
 
 
     override fun onPause() {
         super.onPause()
         val tasks = adapter.dataset
+        Toast.makeText(this.context, "onPause: $tasks", Toast.LENGTH_LONG).show()
         sharedPrefHelper.saveTask(tasks)
-        Toast.makeText(this.context, "saveTask: $tasks", Toast.LENGTH_LONG).show()
-
 
     }
 }
