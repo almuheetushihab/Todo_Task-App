@@ -21,6 +21,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private val viewModel: TodoViewModel by viewModels()
+    private var todoList: ArrayList<Todo> = arrayListOf()
     private lateinit var sharedPrefHelper: SharedPrefHelper
 
 
@@ -36,6 +37,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         sharedPrefHelper = SharedPrefHelper(requireContext())
         return binding.root
     }
+
 
     override fun onViewCreated(
         view: View,
@@ -57,6 +59,11 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
                 TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToAddTaskFragmentNavId()
             findNavController().navigate(action)
         }
+        binding.btnClearAll.setOnClickListener {
+            sharedPrefHelper.clearAllData()
+            dataset.clear()
+            adapter.notifyDataSetChanged()
+        }
 
     }
 
@@ -69,22 +76,18 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onResume() {
         super.onResume()
-
         val tasks = sharedPrefHelper.getTasks()
         Toast.makeText(this.context, "getTasks: $tasks", Toast.LENGTH_LONG).show()
+        dataset.addAll(tasks)
         adapter = TodoAdapter(dataset, this)
         binding.todoTaskRecyclerView.adapter = adapter
-
-        
-
-
     }
+
 
     override fun onPause() {
         super.onPause()
         val tasks = adapter.dataset
         sharedPrefHelper.saveTask(tasks)
-
         Toast.makeText(this.context, "saveTask: $tasks", Toast.LENGTH_LONG).show()
 
 
