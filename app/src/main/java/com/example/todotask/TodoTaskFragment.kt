@@ -20,14 +20,11 @@ import com.example.todotask.databinding.FragmentTodoTaskBinding
 class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
-    private val viewModel: TodoViewModel by viewModels()
     private lateinit var sharedPrefHelper: SharedPrefHelper
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-
-//        sharedPrefHelper.getTasks()
     }
 
     override fun onCreateView(
@@ -47,22 +44,17 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-//        viewModel.items.observe(viewLifecycleOwner, Observer {
-//            adapter = TodoAdapter(it, this)
-//            recyclerView.adapter = adapter
-//        })
-
 
         binding.btnAdd.setOnClickListener {
             val action =
                 TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToAddTaskFragmentNavId()
             findNavController().navigate(action)
         }
-        binding.btnClearAll.setOnClickListener {
-            sharedPrefHelper.clearAllData()
-            adapter.dataset.clear()  // task
-            adapter.notifyDataSetChanged() // Task
-        }
+//        binding.btnClearAll.setOnClickListener {
+//            sharedPrefHelper.clearAllData()
+//            adapter.dataset.clear()  // task
+//            adapter.notifyDataSetChanged() // Task
+//        }
 
     }
 
