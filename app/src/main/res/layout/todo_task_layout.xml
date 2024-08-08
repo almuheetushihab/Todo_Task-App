@@ -8,6 +8,7 @@
     android:layout_marginStart="16dp"
     android:layout_marginTop="16dp"
     android:layout_marginEnd="16dp"
+    android:layout_marginBottom="16dp"
     app:cardCornerRadius="12dp">
 
 
@@ -33,6 +34,7 @@
                 android:layout_weight="1"
                 android:fontFamily="@font/bubble_gumsans_regular"
                 android:text="@string/todo_task"
+                android:textAlignment="center"
                 android:textColor="#6750A4"
                 android:textSize="18sp"
                 android:paddingStart="8dp"
@@ -72,6 +74,7 @@
                 android:fontFamily="@font/bubble_gumsans_regular"
                 android:text="@string/todo_task"
                 android:textColor="@color/gray"
+                android:textAlignment="center"
                 android:textSize="16sp"
                 android:paddingStart="8dp"
                 android:paddingEnd="8dp"
@@ -89,7 +92,6 @@
                 android:fontFamily="@font/bubble_gumsans_regular"
                 android:text="@string/todo_task"
                 android:textColor="@color/red"
-
                 tools:text="Time" />
         </LinearLayout>
 
@@ -100,6 +102,5 @@
 
 
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 
 </androidx.cardview.widget.CardView>
