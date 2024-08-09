@@ -8,7 +8,7 @@
     <fragment
         android:id="@+id/todoTask_Fragment_nav_id"
         android:name="com.example.todotask.TodoTaskFragment"
-        android:label="fragment_todo_task"
+        android:label="Todo-Task"
         tools:layout="@layout/fragment_todo_task">
 
         <action
@@ -21,13 +21,13 @@
     <fragment
         android:id="@+id/addTask_Fragment_nav_id"
         android:name="com.example.todotask.AddTaskFragment"
-        android:label="fragment_add_task"
+        android:label="Add-Task"
         tools:layout="@layout/fragment_add_task" />
     <fragment
         android:id="@+id/updateTask_Fragment_nav_id"
         android:name="com.example.todotask.UpdateTaskFragment"
-        android:label="fragment_update_task"
-        tools:layout="@layout/fragment_update_task" >
+        android:label="Update-Task"
+        tools:layout="@layout/fragment_update_task">
 
         <argument
             android:name="data"

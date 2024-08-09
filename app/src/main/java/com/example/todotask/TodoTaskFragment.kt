@@ -25,6 +25,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
+
     }
 
     override fun onCreateView(
