@@ -18,7 +18,9 @@
      android:fontFamily="@font/bubble_gumsans_regular"
      android:hint="@string/todo_task_name"
      android:textColor="@color/gray"
-     android:inputType="text"
+     android:inputType="textMultiLine"
+     android:maxLines="5"
+     android:scrollHorizontally="false"
      android:paddingStart="8dp"
      android:paddingEnd="8dp"
      android:textSize="24sp"
@@ -27,6 +29,28 @@
      app:layout_constraintTop_toTopOf="parent"
      tools:text="Task Name" />
 
+
+<!-- <EditText-->
+<!--     android:id="@+id/et_update_name"-->
+<!--     android:layout_width="match_parent"-->
+<!--     android:layout_height="wrap_content"-->
+<!--     android:layout_marginTop="100dp"-->
+<!--     android:autofillHints=""-->
+<!--     android:fontFamily="@font/bubble_gumsans_regular"-->
+<!--     android:hint="@string/todo_task_name"-->
+<!--     android:textColor="@color/gray"-->
+<!--     android:inputType="textMultiLine"-->
+<!--     android:paddingStart="8dp"-->
+<!--     android:paddingEnd="8dp"-->
+<!--     android:textSize="24sp"-->
+<!--     android:maxLines="5"   &lt;!&ndash; এটি ঐচ্ছিক, আপনি এটিকে আপনার প্রয়োজন অনুযায়ী সেট করতে পারেন &ndash;&gt;-->
+<!-- android:scrollHorizontally="false"-->
+<!-- app:layout_constraintEnd_toEndOf="parent"-->
+<!-- app:layout_constraintStart_toStartOf="parent"-->
+<!-- app:layout_constraintTop_toTopOf="parent"-->
+<!-- tools:text="Task Name" />-->
+
+
  <EditText
      android:id="@+id/et_update_Details"
      android:layout_width="match_parent"
@@ -34,7 +58,9 @@
      android:autofillHints=""
      android:hint="@string/todo_task_detailsa"
      android:fontFamily="@font/bubble_gumsans_regular"
-     android:inputType="text"
+     android:inputType="textMultiLine"
+     android:maxLines="5"
+     android:scrollHorizontally="false"
      android:paddingStart="8dp"
      android:paddingEnd="8dp"
      android:textColor="@color/gray"
