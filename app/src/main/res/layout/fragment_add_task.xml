@@ -3,51 +3,71 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    android:id="@+id/add_task_layout"
-    android:layout_marginStart="16dp"
-    android:layout_marginTop="16dp"
-    android:layout_marginEnd="16dp">
+    android:layout_height="match_parent">
 
-
-    <EditText
-        android:id="@+id/et_name"
+    <androidx.cardview.widget.CardView
+        android:id="@+id/todoAdd_cardview_id"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/todo_task_name"
-        android:textColor="@color/gray"
-        android:inputType="textMultiLine"
-        android:maxLines="5"
-        android:scrollHorizontally="false"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:fontFamily="@font/bubble_gumsans_regular"
-        android:textSize="24sp"
+        android:orientation="horizontal"
+        android:layout_marginStart="16dp"
         android:layout_marginTop="100dp"
-        app:layout_constraintEnd_toEndOf="parent"
+        android:layout_marginEnd="16dp"
         app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        tools:text="Name"/>
+        app:cardCornerRadius="12dp">
 
-    <EditText
-        android:id="@+id/et_Details"
-        android:layout_width="match_parent"
-        android:layout_height="wrap_content"
-        android:autofillHints=""
-        android:hint="@string/todo_task_details"
-        android:textColor="@color/gray"
-        android:inputType="textMultiLine"
-        android:maxLines="5"
-        android:scrollHorizontally="false"
-        android:paddingStart="8dp"
-        android:paddingEnd="8dp"
-        android:fontFamily="@font/bubble_gumsans_regular"
-        android:textSize="24sp"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_name"
-        tools:text="Details"/>
+
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
+
+
+            <EditText
+                android:id="@+id/et_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/todo_task_name"
+                android:textColor="@color/gray"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:fontFamily="@font/bubble_gumsans_regular"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Name"/>
+
+            <EditText
+                android:id="@+id/et_Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:hint="@string/todo_task_details"
+                android:textColor="@color/gray"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:scrollHorizontally="false"
+                android:paddingStart="8dp"
+                android:paddingEnd="8dp"
+                android:fontFamily="@font/bubble_gumsans_regular"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_name"
+                tools:text="Details"/>
+
+        </androidx.constraintlayout.widget.ConstraintLayout>
+
+
+    </androidx.cardview.widget.CardView>
+
 
     <Button
         android:id="@+id/add_btn"
@@ -55,9 +75,9 @@
         android:layout_height="wrap_content"
         android:text="@string/add"
         android:fontFamily="@font/bubble_gumsans_regular"
-        android:textSize="28sp"
+        android:textSize="24sp"
         android:layout_marginTop="50dp"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toBottomOf="@+id/et_Details" />
+        app:layout_constraintTop_toBottomOf="@+id/todoAdd_cardview_id" />
 </androidx.constraintlayout.widget.ConstraintLayout>
