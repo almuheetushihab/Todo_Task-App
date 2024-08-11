@@ -24,18 +24,6 @@ class MainActivity : AppCompatActivity() {
         binding = ActivityMainBinding.inflate(layoutInflater)
         setContentView(binding.root)
 
-        val toolbar = findViewById<Toolbar>(R.id.custom_toolbar)
-        setSupportActionBar(toolbar)
-
-        supportActionBar?.setDisplayShowTitleEnabled(false)
-
-        val toolbarTitle = findViewById<TextView>(R.id.toolbar_title)
-        toolbarTitle.text = "Todo Task"
-
-        val backButton = findViewById<ImageButton>(R.id.back_button)
-        backButton.setOnClickListener {
-            onBackPressed()
-        }
 
     }
 }

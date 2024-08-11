@@ -52,6 +52,7 @@ class UpdateTaskFragment : Fragment() {
             updateTask(updatedTodo)
             onBackPressed()
         }
+
     }
 
     private fun updateTask(updatedTodo: Todo) {
@@ -71,4 +72,5 @@ class UpdateTaskFragment : Fragment() {
         val dateFormat = SimpleDateFormat("HH:mm", Locale.getDefault())
         return dateFormat.format(currentTime)
     }
+
 }
