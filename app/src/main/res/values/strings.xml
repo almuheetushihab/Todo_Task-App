@@ -16,4 +16,5 @@
     <string name="save">Save</string>
     <string name="clear">Clear</string>
     <string name="back_button">back button</string>
+    <string name="todotask">TodoTask</string>
 </resources>
