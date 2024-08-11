@@ -12,7 +12,6 @@ import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.todotask.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
-    private lateinit var appBarConfiguration: AppBarConfiguration
     private lateinit var binding: ActivityMainBinding
 
 
