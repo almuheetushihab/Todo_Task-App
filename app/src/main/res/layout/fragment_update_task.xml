@@ -6,70 +6,68 @@
     android:layout_height="match_parent">
 
 
- <androidx.cardview.widget.CardView
-     android:id="@+id/todoTask_cardview_id"
-     android:layout_width="match_parent"
-     android:layout_height="wrap_content"
-     android:orientation="horizontal"
-     android:layout_marginStart="16dp"
-     android:layout_marginTop="100dp"
-     android:layout_marginEnd="16dp"
-     app:layout_constraintStart_toStartOf="parent"
-     app:layout_constraintEnd_toEndOf="parent"
-     app:layout_constraintTop_toTopOf="parent"
-     app:cardCornerRadius="12dp">
+    <androidx.cardview.widget.CardView
+        android:id="@+id/todoTask_cardview_id"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:layout_marginStart="16dp"
+        android:layout_marginTop="100dp"
+        android:layout_marginEnd="16dp"
+        android:orientation="horizontal"
+        app:cardCornerRadius="12dp"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent">
 
 
-     <androidx.constraintlayout.widget.ConstraintLayout
-         android:layout_width="match_parent"
-         android:layout_height="wrap_content"
-         android:padding="16dp">
+        <androidx.constraintlayout.widget.ConstraintLayout
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:padding="16dp">
 
-         <EditText
-             android:id="@+id/et_update_name"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:autofillHints=""
-             android:fontFamily="@font/bubble_gumsans_regular"
-             android:hint="@string/todo_task_name"
-             android:inputType="textMultiLine"
-             android:maxLines="5"
-             android:paddingStart="8dp"
-             android:paddingEnd="8dp"
-             android:scrollHorizontally="false"
-             android:textColor="@color/gray"
-             android:textSize="18sp"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toTopOf="parent"
-             app:layout_constraintEnd_toEndOf="parent"
-             tools:text="Task Name" />
+            <EditText
+                android:id="@+id/et_update_name"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/bubble_gumsans_regular"
+                android:hint="@string/todo_task_name"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:padding="15dp"
+                android:scrollHorizontally="false"
+                android:textColor="@color/gray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toTopOf="parent"
+                tools:text="Task Name" />
 
-         <EditText
-             android:id="@+id/et_update_Details"
-             android:layout_width="match_parent"
-             android:layout_height="wrap_content"
-             android:autofillHints=""
-             android:fontFamily="@font/bubble_gumsans_regular"
-             android:hint="@string/todo_task_detailsa"
-             android:inputType="textMultiLine"
-             android:maxLines="5"
-             android:paddingStart="8dp"
-             android:paddingEnd="8dp"
-             android:scrollHorizontally="false"
-             android:textColor="@color/gray"
-             android:textSize="18sp"
-             app:layout_constraintStart_toStartOf="parent"
-             app:layout_constraintTop_toBottomOf="@+id/et_update_name"
-             app:layout_constraintEnd_toEndOf="parent"
-             tools:text="Task Details" />
+            <EditText
+                android:id="@+id/et_update_Details"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:autofillHints=""
+                android:background="@drawable/edit_text_border"
+                android:fontFamily="@font/bubble_gumsans_regular"
+                android:hint="@string/todo_task_detailsa"
+                android:inputType="textMultiLine"
+                android:maxLines="5"
+                android:layout_marginTop="16dp"
+                android:padding="15dp"
+                android:scrollHorizontally="false"
+                android:textColor="@color/gray"
+                android:textSize="18sp"
+                app:layout_constraintEnd_toEndOf="parent"
+                app:layout_constraintStart_toStartOf="parent"
+                app:layout_constraintTop_toBottomOf="@+id/et_update_name"
+                tools:text="Task Details" />
 
-     </androidx.constraintlayout.widget.ConstraintLayout>
+        </androidx.constraintlayout.widget.ConstraintLayout>
 
 
-
-
- </androidx.cardview.widget.CardView>
-
+    </androidx.cardview.widget.CardView>
 
 
     <Button
