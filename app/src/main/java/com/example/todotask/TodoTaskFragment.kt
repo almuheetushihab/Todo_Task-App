@@ -47,9 +47,12 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+
+        binding.includeLayout.toolbarTitle.text = "Todo Task"
+        binding.includeLayout.backButton.visibility = View.GONE
+
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-
 
         binding.btnAdd.setOnClickListener {
             val action =
@@ -59,7 +62,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     }
 
     override fun onItemClick(todo: Todo) {
-        Log.d("Log404", "onItemClick: $todo")
         val action =
             TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToUpdateTaskFragmentNavId(todo)
         findNavController().navigate(action)
@@ -75,7 +77,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val tasks = sharedPrefHelper.getTasks()
         dataset.clear()
         dataset.addAll(tasks)
-        Toast.makeText(this.context, "getTasks: ${tasks.size}", Toast.LENGTH_LONG).show()
         adapter = TodoAdapter(dataset, this)
         binding.todoTaskRecyclerView.adapter = adapter
 
@@ -85,7 +86,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     override fun onPause() {
         super.onPause()
         sharedPrefHelper.clearAllData()
-        Toast.makeText(this.context, "onPause: ${dataset.size}", Toast.LENGTH_LONG).show()
         sharedPrefHelper.saveTask(dataset)
     }
 }

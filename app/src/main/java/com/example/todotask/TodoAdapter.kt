@@ -14,8 +14,7 @@ class TodoAdapter(
     private val listener: ItemClickListener,
 
 
-
-) :
+    ) :
     RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
 
     class ViewHolder(view: View) : RecyclerView.ViewHolder(view) {
@@ -68,7 +67,7 @@ class TodoAdapter(
 
 
     interface ItemClickListener {
-        fun onItemClick(todo: Todo){
+        fun onItemClick(todo: Todo) {
         }
     }
 

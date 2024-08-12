@@ -35,10 +35,12 @@ class UpdateTaskFragment : Fragment() {
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
+        binding.toolbarIncludeUpdateLayout.toolbarTitle.text = "Update Task"
+        binding.toolbarIncludeUpdateLayout.backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         val todo = args.data
-
-        Log.d("Log404", "Got the todo : $todo")
 
 
         binding.etUpdateName.setText(todo.name)
@@ -48,7 +50,6 @@ class UpdateTaskFragment : Fragment() {
             val details = binding.etUpdateDetails.text.toString()
             val time = getCurrentTime()
             val updatedTodo = Todo(id = todo.id, name = name, details = details, time = time)
-            Log.d("Log404", "updateTask: $updatedTodo ")
             updateTask(updatedTodo)
             onBackPressed()
         }

@@ -34,6 +34,10 @@ class AddTaskFragment : Fragment() {
 
         ) {
         super.onViewCreated(view, savedInstanceState)
+        binding.includeAddToolbarLayoutId.toolbarTitle.text = "Add Task"
+        binding.includeAddToolbarLayoutId.backButton.setOnClickListener {
+            onBackPressed()
+        }
 
         binding.etName.getText()
         binding.etDetails.getText()

@@ -66,6 +66,7 @@
                 android:maxLines="10"
                 android:minLines="6"
                 android:padding="15dp"
+                android:gravity="start"
                 android:scrollHorizontally="false"
                 android:textColor="@color/gray"
                 android:textSize="18sp"
