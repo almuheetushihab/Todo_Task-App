@@ -2,18 +2,13 @@ package com.example.todotask
 
 import SharedPrefHelper
 import TodoViewModel
+import android.annotation.SuppressLint
 import androidx.fragment.app.viewModels
 import android.os.Bundle
-import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
-import android.widget.ImageButton
-import android.widget.TextView
-import android.widget.Toast
-import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -28,12 +23,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private val viewModel: TodoViewModel by viewModels()
 
 
-    override fun onCreate(savedInstanceState: Bundle?) {
-        super.onCreate(savedInstanceState)
-
-
-    }
-
     override fun onCreateView(
         inflater: LayoutInflater, container: ViewGroup?, savedInstanceState: Bundle?
     ): View {
@@ -42,7 +31,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         return binding.root
     }
 
-
+    
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
@@ -54,12 +43,12 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
-        adapter = TodoAdapter(arrayListOf(), this)
-        recyclerView.adapter = adapter
 
 
-        viewModel.items.observe(viewLifecycleOwner, Observer { newTasks ->
-            adapter.updateData(newTasks)
+
+        viewModel.items.observe(viewLifecycleOwner, Observer { newDataset ->
+            adapter = TodoAdapter(newDataset, this)
+            recyclerView.adapter = adapter
         })
 
         binding.btnAdd.setOnClickListener {
@@ -75,19 +64,10 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         findNavController().navigate(action)
     }
 
+
     override fun onResume() {
         super.onResume()
-
-        if (!dataset.isEmpty()) {
-            sharedPrefHelper.saveTask(dataset)
-        }
-
-        val tasks = sharedPrefHelper.getTasks()
-        dataset.clear()
-        dataset.addAll(tasks)
-        adapter = TodoAdapter(dataset, this)
-        binding.todoTaskRecyclerView.adapter = adapter
-
+        viewModel.getData(requireContext())
     }
 
 

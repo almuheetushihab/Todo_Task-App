@@ -1,4 +1,4 @@
-import android.util.Log
+import android.content.Context
 import androidx.lifecycle.LiveData
 import androidx.lifecycle.MutableLiveData
 import androidx.lifecycle.ViewModel
@@ -6,23 +6,22 @@ import com.example.todotask.Todo
 import com.example.todotask.dataset
 
 class TodoViewModel : ViewModel() {
-
+    private lateinit var sharedPrefHelper: SharedPrefHelper
 
     private val _items = MutableLiveData<ArrayList<Todo>>()
     val items: LiveData<ArrayList<Todo>> get() = _items
 
-    init {
-        _items.value = ArrayList(dataset)
-    }
-    fun setTasks(tasks: ArrayList<Todo>) {
-        _items.value = tasks
-    }
 
-    fun addItem(item: Todo) {
-        val currentList = _items.value ?: ArrayList()
-        currentList.add(item)
-        _items.value = currentList
-        Log.d("TAG", "addItem: $currentList")
+    fun getData(context: Context) {
+        sharedPrefHelper = SharedPrefHelper(context)
+        if (!dataset.isEmpty()) {
+            sharedPrefHelper.saveTask(dataset)
+        }
+
+        val tasks = sharedPrefHelper.getTasks()
+        _items.value = tasks as ArrayList<Todo>
+        dataset.clear()
+        dataset.addAll(tasks)
     }
 
 }
