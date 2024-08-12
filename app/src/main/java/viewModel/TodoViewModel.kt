@@ -22,7 +22,16 @@ class TodoViewModel : ViewModel() {
         _items.value = tasks as ArrayList<Todo>
         dataset.clear()
         dataset.addAll(tasks)
+    }
 
+    fun saveData(context: Context) {
+        sharedPrefHelper = SharedPrefHelper(context)
+        sharedPrefHelper.saveTask(dataset)
+    }
+
+    fun clearData(context: Context) {
+        sharedPrefHelper = SharedPrefHelper(context)
+        sharedPrefHelper.clearAllData()
     }
 
 }

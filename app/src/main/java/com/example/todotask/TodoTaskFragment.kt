@@ -2,13 +2,18 @@ package com.example.todotask
 
 import SharedPrefHelper
 import TodoViewModel
-import android.annotation.SuppressLint
 import androidx.fragment.app.viewModels
 import android.os.Bundle
+import android.util.Log
 import androidx.fragment.app.Fragment
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
+import android.widget.ImageButton
+import android.widget.TextView
+import android.widget.Toast
+import androidx.appcompat.app.AppCompatActivity
+import androidx.appcompat.widget.Toolbar
 import androidx.lifecycle.Observer
 import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
@@ -44,11 +49,10 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-        viewModel.items.observe(viewLifecycleOwner, Observer { newDataset ->
-            adapter = TodoAdapter(newDataset, this)
+        viewModel.items.observe(viewLifecycleOwner, Observer { newTasks ->
+            adapter = TodoAdapter(newTasks, this)
             recyclerView.adapter = adapter
         })
-
 
         binding.btnAdd.setOnClickListener {
             val action =
@@ -63,7 +67,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         findNavController().navigate(action)
     }
 
-
     override fun onResume() {
         super.onResume()
         viewModel.getData(requireContext())
@@ -72,7 +75,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
     override fun onPause() {
         super.onPause()
-        sharedPrefHelper.clearAllData()
-        sharedPrefHelper.saveTask(dataset)
+        viewModel.clearData(requireContext())
+        viewModel.saveData(requireContext())
     }
 }
