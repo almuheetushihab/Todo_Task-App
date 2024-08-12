@@ -10,7 +10,7 @@ import android.widget.TextView
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoAdapter(
-    val dataset: ArrayList<Todo>,
+    var dataset: ArrayList<Todo>,
     private val listener: ItemClickListener,
 
 
@@ -58,6 +58,11 @@ class TodoAdapter(
         viewHolder.itemView.setOnClickListener {
             listener.onItemClick(todo)
         }
+    }
+
+    fun updateData(newDataset: ArrayList<Todo>) {
+        dataset = newDataset
+        notifyDataSetChanged()
     }
 
 

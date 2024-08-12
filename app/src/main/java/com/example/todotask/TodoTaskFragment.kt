@@ -54,7 +54,13 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+        adapter = TodoAdapter(arrayListOf(), this)
+        recyclerView.adapter = adapter
 
+
+        viewModel.items.observe(viewLifecycleOwner, Observer { newTasks ->
+            adapter.updateData(newTasks)
+        })
 
         binding.btnAdd.setOnClickListener {
             val action =
