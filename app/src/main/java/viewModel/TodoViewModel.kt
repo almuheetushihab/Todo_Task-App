@@ -14,4 +14,9 @@ class TodoViewModel : ViewModel() {
         _items.value = dataset
     }
 
+    fun loadTasks() {
+        _items.value = dataset
+    }
+
+
 }

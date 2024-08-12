@@ -25,6 +25,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     private lateinit var adapter: TodoAdapter
     private lateinit var binding: FragmentTodoTaskBinding
     private lateinit var sharedPrefHelper: SharedPrefHelper
+    private val viewModel: TodoViewModel by viewModels()
 
 
     override fun onCreate(savedInstanceState: Bundle?) {
@@ -51,8 +52,16 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         binding.includeLayout.toolbarTitle.text = "Todo Task"
         binding.includeLayout.backButton.visibility = View.GONE
 
+        viewModel.items.observe(viewLifecycleOwner, Observer { todos ->
+            dataset.clear()
+            dataset.addAll(todos)
+            adapter.notifyDataSetChanged()
+        })
+
+
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
+
 
         binding.btnAdd.setOnClickListener {
             val action =
@@ -67,25 +76,28 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         findNavController().navigate(action)
     }
 
+
     override fun onResume() {
         super.onResume()
 
-        if (!dataset.isEmpty()) {
-            sharedPrefHelper.saveTask(dataset)
-        }
+        viewModel.loadTasks()
 
         val tasks = sharedPrefHelper.getTasks()
         dataset.clear()
         dataset.addAll(tasks)
-        adapter = TodoAdapter(dataset, this)
-        binding.todoTaskRecyclerView.adapter = adapter
+        adapter.notifyDataSetChanged()
 
+
+        if (dataset.isNotEmpty()) {
+            sharedPrefHelper.saveTask(dataset)
+        }
     }
-
 
     override fun onPause() {
         super.onPause()
-        sharedPrefHelper.clearAllData()
         sharedPrefHelper.saveTask(dataset)
     }
 }
+
+
+
