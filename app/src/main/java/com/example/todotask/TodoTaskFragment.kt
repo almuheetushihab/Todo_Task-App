@@ -52,13 +52,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         binding.includeLayout.toolbarTitle.text = "Todo Task"
         binding.includeLayout.backButton.visibility = View.GONE
 
-        viewModel.items.observe(viewLifecycleOwner, Observer { todos ->
-            dataset.clear()
-            dataset.addAll(todos)
-            adapter.notifyDataSetChanged()
-        })
-
-
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
@@ -76,28 +69,25 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         findNavController().navigate(action)
     }
 
-
     override fun onResume() {
         super.onResume()
 
-        viewModel.loadTasks()
+        if (!dataset.isEmpty()) {
+            sharedPrefHelper.saveTask(dataset)
+        }
 
         val tasks = sharedPrefHelper.getTasks()
         dataset.clear()
         dataset.addAll(tasks)
-        adapter.notifyDataSetChanged()
+        adapter = TodoAdapter(dataset, this)
+        binding.todoTaskRecyclerView.adapter = adapter
 
-
-        if (dataset.isNotEmpty()) {
-            sharedPrefHelper.saveTask(dataset)
-        }
     }
+
 
     override fun onPause() {
         super.onPause()
+        sharedPrefHelper.clearAllData()
         sharedPrefHelper.saveTask(dataset)
     }
 }
-
-
-
