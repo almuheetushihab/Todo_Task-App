@@ -58,16 +58,9 @@ class TodoAdapter(
         }
     }
 
-    fun updateData(newDataset: ArrayList<Todo>) {
-        dataset = newDataset
-        notifyDataSetChanged()
-    }
-
-
     override fun getItemCount(): Int {
         return dataset.size
     }
-
 
     interface ItemClickListener {
         fun onItemClick(todo: Todo) {

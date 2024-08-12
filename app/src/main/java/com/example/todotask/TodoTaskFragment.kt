@@ -31,7 +31,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         return binding.root
     }
 
-    
+
     override fun onViewCreated(
         view: View,
         savedInstanceState: Bundle?,
@@ -44,12 +44,11 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         val recyclerView: RecyclerView = binding.todoTaskRecyclerView
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
-
-
         viewModel.items.observe(viewLifecycleOwner, Observer { newDataset ->
             adapter = TodoAdapter(newDataset, this)
             recyclerView.adapter = adapter
         })
+
 
         binding.btnAdd.setOnClickListener {
             val action =

@@ -16,12 +16,13 @@ class TodoViewModel : ViewModel() {
         sharedPrefHelper = SharedPrefHelper(context)
         if (!dataset.isEmpty()) {
             sharedPrefHelper.saveTask(dataset)
-        }
 
+        }
         val tasks = sharedPrefHelper.getTasks()
         _items.value = tasks as ArrayList<Todo>
         dataset.clear()
         dataset.addAll(tasks)
+
     }
 
 }
