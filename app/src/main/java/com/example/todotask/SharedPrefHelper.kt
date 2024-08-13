@@ -29,7 +29,7 @@ class SharedPrefHelper(context: Context) {
         }
     }
 
-    fun clearAllData(){
+    fun clearAllData() {
         editor.clear()
         editor.apply()
     }

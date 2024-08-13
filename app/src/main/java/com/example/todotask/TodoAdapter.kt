@@ -1,16 +1,17 @@
 package com.example.todotask
 
+import SharedPrefHelper
 import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.ImageButton
 import android.widget.TextView
+import androidx.core.content.ContentProviderCompat.requireContext
 import androidx.recyclerview.widget.RecyclerView
 
 class TodoAdapter(
     var dataset: ArrayList<Todo>,
     private val listener: ItemClickListener,
-
 
     ) :
     RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
@@ -52,6 +53,7 @@ class TodoAdapter(
             dataset.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.size)
+
         }
         viewHolder.itemView.setOnClickListener {
             listener.onItemClick(todo)

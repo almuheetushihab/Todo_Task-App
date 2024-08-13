@@ -42,7 +42,7 @@
                 android:background="@drawable/edit_text_border"
                 android:fontFamily="@font/bubble_gumsans_regular"
                 android:hint="@string/todo_task_name"
-                android:inputType="textMultiLine"
+                android:inputType="text"
                 android:maxLines="5"
                 android:padding="15dp"
                 android:scrollHorizontally="false"
