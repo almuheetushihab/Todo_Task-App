@@ -53,7 +53,6 @@ class TodoAdapter(
             dataset.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.size)
-
         }
         viewHolder.itemView.setOnClickListener {
             listener.onItemClick(todo)

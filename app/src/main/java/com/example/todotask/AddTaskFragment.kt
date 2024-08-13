@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.Toast
 import androidx.appcompat.widget.Toolbar
+import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.viewModels
 import com.example.todotask.databinding.FragmentAddTaskBinding
 import java.text.SimpleDateFormat
@@ -49,6 +50,12 @@ class AddTaskFragment : Fragment() {
 
             if (name.isBlank()) {
                 Toast.makeText(requireContext(), "Please enter a name", Toast.LENGTH_SHORT).show()
+            } else if (name.isDigitsOnly() || details.isDigitsOnly()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Name,Details must contain only letters",
+                    Toast.LENGTH_SHORT
+                ).show()
             } else if (name.length < 3) {
                 Toast.makeText(
                     requireContext(),
@@ -62,7 +69,6 @@ class AddTaskFragment : Fragment() {
                 onBackPressed()
             }
         }
-
 
     }
 

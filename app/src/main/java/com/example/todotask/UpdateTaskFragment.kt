@@ -7,6 +7,8 @@ import android.view.LayoutInflater
 import android.view.View
 import android.view.ViewGroup
 import android.widget.Button
+import android.widget.Toast
+import androidx.core.text.isDigitsOnly
 import androidx.fragment.app.viewModels
 import androidx.navigation.fragment.navArgs
 import com.example.todotask.databinding.FragmentUpdateTaskBinding
@@ -48,12 +50,28 @@ class UpdateTaskFragment : Fragment() {
         binding.updateBtn.setOnClickListener {
             val name = binding.etUpdateName.text.toString()
             val details = binding.etUpdateDetails.text.toString()
-            val time = getCurrentTime()
-            val updatedTodo = Todo(id = todo.id, name = name, details = details, time = time)
-            updateTask(updatedTodo)
-            onBackPressed()
-        }
 
+            if (name.isBlank()) {
+                Toast.makeText(requireContext(), "Please enter a name", Toast.LENGTH_SHORT).show()
+            } else if (name.isDigitsOnly() || details.isDigitsOnly()) {
+                Toast.makeText(
+                    requireContext(),
+                    "Name,Details must contain only letters",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else if (name.length < 3) {
+                Toast.makeText(
+                    requireContext(),
+                    "Name must be at least 3 characters",
+                    Toast.LENGTH_SHORT
+                ).show()
+            } else {
+                val time = getCurrentTime()
+                val updatedTodo = Todo(id = todo.id, name = name, details = details, time = time)
+                updateTask(updatedTodo)
+                onBackPressed()
+            }
+        }
     }
 
     private fun updateTask(updatedTodo: Todo) {
