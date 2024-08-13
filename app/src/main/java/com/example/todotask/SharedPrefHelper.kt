@@ -32,7 +32,14 @@ class SharedPrefHelper(context: Context) {
     fun clearAllData() {
         editor.clear()
         editor.apply()
+    }
 
+
+
+
+    fun removeData(key: String) {
+        editor.remove(key)
+        editor.apply()
     }
 
 

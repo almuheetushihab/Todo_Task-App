@@ -59,6 +59,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
                 TodoTaskFragmentDirections.actionTodoTaskFragmentNavIdToAddTaskFragmentNavId()
             findNavController().navigate(action)
         }
+
     }
 
     override fun onItemClick(todo: Todo) {
@@ -77,5 +78,6 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         super.onPause()
         viewModel.clearData(requireContext())
         viewModel.saveData(requireContext())
+
     }
 }

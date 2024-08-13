@@ -54,7 +54,7 @@ class TodoAdapter(
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.size)
             val sharedPrefHelper = SharedPrefHelper(viewHolder.itemView.context)
-            sharedPrefHelper.clearAllData()
+            sharedPrefHelper.removeData("tasks")
         }
 
         viewHolder.itemView.setOnClickListener {
