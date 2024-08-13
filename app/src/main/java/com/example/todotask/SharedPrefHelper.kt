@@ -32,6 +32,7 @@ class SharedPrefHelper(context: Context) {
     fun clearAllData() {
         editor.clear()
         editor.apply()
+
     }
 
 

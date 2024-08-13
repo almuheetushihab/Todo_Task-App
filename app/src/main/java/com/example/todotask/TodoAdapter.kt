@@ -53,11 +53,15 @@ class TodoAdapter(
             dataset.removeAt(position)
             notifyItemRemoved(position)
             notifyItemRangeChanged(position, dataset.size)
+            val sharedPrefHelper = SharedPrefHelper(viewHolder.itemView.context)
+            sharedPrefHelper.clearAllData()
         }
+
         viewHolder.itemView.setOnClickListener {
             listener.onItemClick(todo)
         }
     }
+
 
     override fun getItemCount(): Int {
         return dataset.size
