@@ -55,12 +55,6 @@ class AddTaskFragment : Fragment() {
                     "Name must be at least 3 characters",
                     Toast.LENGTH_SHORT
                 ).show()
-            } else if (!name.matches(Regex("^[a-zA-Z\\s]*$"))) {
-                Toast.makeText(
-                    requireContext(),
-                    "Name must contain only letters",
-                    Toast.LENGTH_SHORT
-                ).show()
             } else {
                 val time = getCurrentTime()
                 val todo = Todo(id = name, name = name, details = details, time = time)
