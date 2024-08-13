@@ -55,15 +55,11 @@ class UpdateTaskFragment : Fragment() {
                 Toast.makeText(requireContext(), "Please enter a name", Toast.LENGTH_SHORT).show()
             } else if (name.isDigitsOnly() || details.isDigitsOnly()) {
                 Toast.makeText(
-                    requireContext(),
-                    "Name,Details must contain only letters",
-                    Toast.LENGTH_SHORT
+                    requireContext(), "Name,Details must contain only letters", Toast.LENGTH_SHORT
                 ).show()
             } else if (name.length < 3) {
                 Toast.makeText(
-                    requireContext(),
-                    "Name must be at least 3 characters",
-                    Toast.LENGTH_SHORT
+                    requireContext(), "Name must be at least 3 characters", Toast.LENGTH_SHORT
                 ).show()
             } else {
                 val time = getCurrentTime()

@@ -11,7 +11,7 @@ import androidx.recyclerview.widget.RecyclerView
 
 class TodoAdapter(
     var dataset: ArrayList<Todo>,
-    private val listener: ItemClickListener,
+    private val listener: ItemClickListener
 
     ) :
     RecyclerView.Adapter<TodoAdapter.ViewHolder>() {
@@ -49,12 +49,15 @@ class TodoAdapter(
         viewHolder.todoDescription.text = todo.details
         viewHolder.todoTime.text = todo.time
 
+
+//        viewHolder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
+//            dataset.removeAt(position)
+//            notifyItemRemoved(position)
+//            notifyItemRangeChanged(position, dataset.size)
+//        }
+
         viewHolder.itemView.findViewById<ImageButton>(R.id.btn_delete).setOnClickListener {
-            dataset.removeAt(position)
-            notifyItemRemoved(position)
-            notifyItemRangeChanged(position, dataset.size)
-            val sharedPrefHelper = SharedPrefHelper(viewHolder.itemView.context)
-            sharedPrefHelper.removeData("tasks")
+            listener.onItemDelete(todo)
         }
 
         viewHolder.itemView.setOnClickListener {
@@ -68,10 +71,9 @@ class TodoAdapter(
     }
 
     interface ItemClickListener {
-        fun onItemClick(todo: Todo) {
-        }
+        fun onItemClick(todo: Todo)
+        fun onItemDelete(todo: Todo)
     }
-
 
 }
 

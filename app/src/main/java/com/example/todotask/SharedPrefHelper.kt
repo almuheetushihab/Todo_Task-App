@@ -1,6 +1,5 @@
 import android.content.Context
 import android.content.SharedPreferences
-import android.widget.Toast
 import com.example.todotask.Todo
 import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
@@ -31,14 +30,6 @@ class SharedPrefHelper(context: Context) {
 
     fun clearAllData() {
         editor.clear()
-        editor.apply()
-    }
-
-
-
-
-    fun removeData(key: String) {
-        editor.remove(key)
         editor.apply()
     }
 

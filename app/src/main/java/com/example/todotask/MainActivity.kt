@@ -1,16 +1,7 @@
 package com.example.todotask
 
 import android.os.Bundle
-import android.view.View
-import android.widget.EditText
-import android.widget.ImageButton
-import android.widget.TextView
 import androidx.appcompat.app.AppCompatActivity
-import androidx.appcompat.widget.Toolbar
-import androidx.navigation.findNavController
-import androidx.navigation.ui.AppBarConfiguration
-import androidx.navigation.ui.navigateUp
-import androidx.navigation.ui.setupActionBarWithNavController
 import com.example.todotask.databinding.ActivityMainBinding
 
 class MainActivity : AppCompatActivity() {
