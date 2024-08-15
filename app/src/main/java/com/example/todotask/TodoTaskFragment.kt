@@ -32,7 +32,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
 
     override fun onViewCreated(
-        view: View,
+        view: View,  
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
