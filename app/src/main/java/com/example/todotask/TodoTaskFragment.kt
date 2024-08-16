@@ -13,7 +13,6 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todotask.databinding.FragmentTodoTaskBinding
-import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.base.Objects
 
 
 class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
@@ -33,7 +32,7 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 
 
     override fun onViewCreated(
-        view: View,  
+        view: View,
         savedInstanceState: Bundle?,
     ) {
         super.onViewCreated(view, savedInstanceState)
@@ -45,9 +44,10 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.items.observe(viewLifecycleOwner, Observer { newTasks ->
-            adapter = TodoAdapter(newTasks, this)
-            recyclerView.adapter = adapter
+
         })
+
+
 
         binding.btnAdd.setOnClickListener {
             val action =
@@ -81,55 +81,41 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
 }
 
 
-open class  FragmentTest(){
-
-    open fun test(){
-
-    }
-
-    open fun test2(){}
-
-
-}
-
-fun  doSomething(testInterface: TestInterface){
-
-}
-
-object Nothing{
-    fun doNothing(a:(a:Int)->Unit){
-        a.invoke(2)
-    }
-}
-
-
-class  TodoFragment:FragmentTest(){
-
-    override fun test(){
-        super.test()
-
-        Nothing.doNothing { value ->
-
-        }
-
-    }
-
-    override fun test2(){
-        super.test2()
-
-    }
-
-
-
-    val test = object :TestInterface{
-        override fun testImplement(a: Int) {
-        }
-    }
-
-}
-
-
-
-interface  TestInterface{
-    fun testImplement(a:Int)
-}
+//open class FragmentTest() {
+//
+//    open fun oncreat() {
+//
+//    }
+//
+//    open fun oncreated() {}
+//
+//
+//}
+//
+//
+//object Nothing {
+//    fun doNothing(lifecycle: Int, testInterface: obseve) {
+//
+//    }
+//}
+//
+//
+//class TodoFragment : FragmentTest() {
+//
+//    override fun oncreat() {
+//        super.oncreat()
+//        Nothing.doNothing(8, obseve { a ->
+//
+//        })
+//    }
+//    override fun oncreated() {
+//        super.oncreated()
+//
+//    }
+//
+//}
+//
+//
+//fun interface obseve {
+//    fun testImplement(a: Int)
+//}
