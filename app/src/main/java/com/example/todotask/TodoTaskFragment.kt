@@ -13,6 +13,7 @@ import androidx.navigation.fragment.findNavController
 import androidx.recyclerview.widget.LinearLayoutManager
 import androidx.recyclerview.widget.RecyclerView
 import com.example.todotask.databinding.FragmentTodoTaskBinding
+import com.google.firebase.crashlytics.buildtools.reloc.com.google.common.base.Objects
 
 
 class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
@@ -77,4 +78,58 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     override fun onItemDelete(todo: Todo) {
 
     }
+}
+
+
+open class  FragmentTest(){
+
+    open fun test(){
+
+    }
+
+    open fun test2(){}
+
+
+}
+
+fun  doSomething(testInterface: TestInterface){
+
+}
+
+object Nothing{
+    fun doNothing(a:(a:Int)->Unit){
+        a.invoke(2)
+    }
+}
+
+
+class  TodoFragment:FragmentTest(){
+
+    override fun test(){
+        super.test()
+
+        Nothing.doNothing { value ->
+
+        }
+
+    }
+
+    override fun test2(){
+        super.test2()
+
+    }
+
+
+
+    val test = object :TestInterface{
+        override fun testImplement(a: Int) {
+        }
+    }
+
+}
+
+
+
+interface  TestInterface{
+    fun testImplement(a:Int)
 }

@@ -5,6 +5,7 @@ import com.google.gson.Gson
 import com.google.gson.reflect.TypeToken
 
 class SharedPrefHelper(context: Context) {
+    private val test: String = "test"
     private val sharedPref: SharedPreferences =
         context.getSharedPreferences("TodoSharedPref", Context.MODE_PRIVATE)
     private val editor: SharedPreferences.Editor = sharedPref.edit()
