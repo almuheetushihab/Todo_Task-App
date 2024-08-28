@@ -44,7 +44,8 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
         recyclerView.layoutManager = LinearLayoutManager(requireContext())
 
         viewModel.items.observe(viewLifecycleOwner, Observer { newTasks ->
-
+            adapter = TodoAdapter(newTasks, this)
+            recyclerView.adapter = adapter
         })
 
 
@@ -76,7 +77,8 @@ class TodoTaskFragment : Fragment(), TodoAdapter.ItemClickListener {
     }
 
     override fun onItemDelete(todo: Todo) {
-
+        viewModel.deleteData(requireContext(), todo)
+        viewModel.getData(requireContext())
     }
 }
 

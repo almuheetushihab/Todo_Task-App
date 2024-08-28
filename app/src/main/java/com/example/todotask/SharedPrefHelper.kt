@@ -33,6 +33,13 @@ class SharedPrefHelper(context: Context) {
         editor.apply()
     }
 
+    fun deleteTask(todo: Todo) {
+        val tasks = getTasks().toMutableList()
+        tasks.remove(todo)
+        saveTask(tasks as ArrayList<Todo>)
+
+    }
+
 
 }
 

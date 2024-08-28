@@ -34,6 +34,11 @@ class TodoViewModel : ViewModel() {
         sharedPrefHelper.clearAllData()
     }
 
+    fun deleteData(requireContext: Context, todo: Todo) {
+        sharedPrefHelper = SharedPrefHelper(requireContext)
+        sharedPrefHelper.deleteTask(todo)
+
+    }
 
 
 }
